@@ -26,3 +26,7 @@ C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\obj\Debug\MPT.csprojResolveAssemb
 C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\obj\Debug\MPT.csproj.CoreCompileInputs.cache
 C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\obj\Debug\MPT.dll
 C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\obj\Debug\MPT.pdb
+C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\bin\EntityFramework.dll
+C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\bin\EntityFramework.SqlServer.dll
+C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\bin\EntityFramework.xml
+C:\Users\Kamil\Desktop\MPT\MPT-project\MPT\MPT\bin\EntityFramework.SqlServer.xml
