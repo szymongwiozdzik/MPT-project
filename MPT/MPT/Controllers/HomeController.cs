@@ -26,6 +26,22 @@ namespace MPT.Controllers
             return View();
   
         }
+
+        public ActionResult Calendar()
+        {
+            return View();
+        }
+
+        public JsonResult GetEvents()
+        {
+            using(MPTDatabaseEntities dc = new MPTDatabaseEntities())
+            {
+                var events = dc.Events.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
+
+        
         
         
         
