@@ -12,7 +12,7 @@ namespace MPT.Controllers
        public ActionResult Login()
         {
             User usr = new User();
-            if (Request.Cookies["userInfo"] != null)
+            if (Request.Cookies["userInfp"] != null)
             {
                 return RedirectToAction("Index");
             }
@@ -25,25 +25,6 @@ namespace MPT.Controllers
         {
             return View();
   
-        }
-
-        public ActionResult Calendar()
-        {
-           // Session["PreviousRoute"] = Request.Url.ToString();
-           // if (null == Request.Cookies["userInfo"])
-           // {
-           //     return RedirectToAction("Login");
-            //}
-            return View();
-        }
-
-        public JsonResult GetEvents()
-        {
-            using (TemporaryDBEntities db = new TemporaryDBEntities())
-            {
-                var events = db.Events.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
         }
         
         
