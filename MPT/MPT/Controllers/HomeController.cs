@@ -27,6 +27,11 @@ namespace MPT.Controllers
   
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         public ActionResult Calendar()
         {
             return View();
