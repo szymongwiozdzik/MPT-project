@@ -16,5 +16,6 @@ namespace MPT.Models
         public string HasPassword { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public List<Event> Events { get; set; }
     }
 }
