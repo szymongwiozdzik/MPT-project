@@ -9,7 +9,19 @@ namespace MPT.Controllers
 {
     public class HomeController : Controller
     {
-       public ActionResult Login()
+        private MPTDBContext db;
+
+        public HomeController()
+        {
+            db = new MPTDBContext();
+        }
+
+        public HomeController(MPTDBContext _db)
+        {
+            db = _db;
+        }
+
+        public ActionResult Login()
         {
             User usr = new User();
             if (Request.Cookies["userInfp"] != null)
@@ -39,11 +51,8 @@ namespace MPT.Controllers
 
         public JsonResult GetEvents()
         {
-            using(MPTDatabaseEntities dc = new MPTDatabaseEntities())
-            {
-                var events = dc.Events.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
+           var events = db.Events.ToList();
+           return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         
