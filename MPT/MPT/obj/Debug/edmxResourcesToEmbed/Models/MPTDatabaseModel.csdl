@@ -14,5 +14,15 @@
   </EntityType>
   <EntityContainer Name="MPTDatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Events" EntityType="Self.Events" />
+    <EntitySet Name="Users" EntityType="MPTDatabaseModel.Users" />
   </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HasPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

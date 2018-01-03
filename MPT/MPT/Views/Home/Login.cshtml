@@ -1,4 +1,4 @@
-﻿@model MPT.Models.User
+﻿@model MPT.Models.Users
 
 @{
     Layout = null;
@@ -38,7 +38,7 @@
                 </div>
                 <br />
                 <div id="logowanie">
-                    @using (Html.BeginForm("Login", "Account"))
+                    @using (Html.BeginForm("Login", "Home"))
             {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary()

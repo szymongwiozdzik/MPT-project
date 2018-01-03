@@ -26,5 +26,6 @@ namespace MPT.Models
         }
     
         public virtual DbSet<Events> Events { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

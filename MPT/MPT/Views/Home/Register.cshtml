@@ -1,4 +1,4 @@
-﻿@model MPT.Models.User
+﻿@model MPT.Models.Users
 
 @{
     Layout = null;
@@ -38,7 +38,7 @@
                 </div>
                 <br />
                 <div id="logowanie">
-                    @using (Html.BeginForm("Register", "Account"))
+                    @using (Html.BeginForm("Register", "Home"))
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary()
@@ -49,10 +49,10 @@
                         <h4>Surname:</h4>
                         @Html.TextBoxFor(model => model.Surname)
                         <h4>Password:</h4>
-                        @Html.PasswordFor(model => model.Password)
+                        @Html.PasswordFor(model => model.HasPassword)
                         <br />
-                        <h4>Confirm password:</h4>
-                        @Html.PasswordFor(model => model.ConfirmPassword)
+                        @*<h4>Confirm password:</h4>
+                        @Html.PasswordFor(model => model.ConfirmPassword)*@
                         <br />
                         <p align="center"><input type="submit" value="Register" /></p>
                         <br />

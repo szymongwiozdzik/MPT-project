@@ -12,7 +12,17 @@
     <Property Name="ThemeColor" Type="nvarchar" MaxLength="10" />
     <Property Name="IsFullDay" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Surname" Type="nvarchar(max)" />
+    <Property Name="HasPassword" Type="nvarchar(max)" />
+  </EntityType>
   <EntityContainer Name="MPTDatabaseModelStoreContainer">
     <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
