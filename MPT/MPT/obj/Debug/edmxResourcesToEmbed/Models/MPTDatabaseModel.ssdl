@@ -11,6 +11,7 @@
     <Property Name="End" Type="datetime" />
     <Property Name="ThemeColor" Type="nvarchar" MaxLength="10" />
     <Property Name="IsFullDay" Type="bit" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="Users">
     <Key>

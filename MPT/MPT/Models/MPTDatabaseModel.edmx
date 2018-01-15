@@ -16,6 +16,7 @@
           <Property Name="End" Type="datetime" />
           <Property Name="ThemeColor" Type="nvarchar" MaxLength="10" />
           <Property Name="IsFullDay" Type="bit" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -45,6 +46,7 @@
           <Property Name="End" Type="DateTime" Precision="3" />
           <Property Name="ThemeColor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="MPTDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Events" EntityType="Self.Events" />
@@ -68,6 +70,7 @@
           <EntitySetMapping Name="Events">
             <EntityTypeMapping TypeName="MPTDatabaseModel.Events">
               <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="EventID" ColumnName="EventID" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

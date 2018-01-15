@@ -13,7 +13,7 @@ namespace MPT.Controllers
         {
             Users model = new Users();
             //User usr = new User();
-            if (Request.Cookies["userInfp"] != null)
+            if (Request.Cookies["userInfo"] != null)
             {
                 return RedirectToAction("Index");
             }
@@ -124,9 +124,15 @@ namespace MPT.Controllers
 
         public JsonResult GetEvents()
         {
+            string userId = GetLoggedInUserId();
             using(MPTDatabaseEntities dc = new MPTDatabaseEntities())
             {
-                var events = dc.Events.ToList();
+                
+                if (userId == null)
+                {
+                    return new JsonResult { Data = new List<Events>() , JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
+                var events = dc.Events.ToList().Where(e => e.UserID == userId); //dirty
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
@@ -135,8 +141,10 @@ namespace MPT.Controllers
         public JsonResult SaveEvent(Events e)
         {
             var status = false;
+            string userId = GetLoggedInUserId();
             using (MPTDatabaseEntities dc = new MPTDatabaseEntities())
             {
+
                 if (e.EventID > 0)
                 {
                     //Update the event
@@ -149,10 +157,12 @@ namespace MPT.Controllers
                         v.Description = e.Description;
                         v.IsFullDay = e.IsFullDay;
                         v.ThemeColor = e.ThemeColor;
+                        v.UserID = userId;
                     }
                 }
                 else
                 {
+                    e.UserID = userId;
                     dc.Events.Add(e);
                 }
                 dc.SaveChanges();
@@ -184,6 +194,11 @@ namespace MPT.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        private string GetLoggedInUserId()
+        {
+            return Request.Cookies["userInfo"] != null ? Request.Cookies["userInfo"].Values["UserName"] : null;
         }
     }
 }

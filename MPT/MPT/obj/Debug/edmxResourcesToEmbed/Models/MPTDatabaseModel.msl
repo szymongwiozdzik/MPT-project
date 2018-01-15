@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Events">
       <EntityTypeMapping TypeName="MPTDatabaseModel.Events">
         <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="EventID" ColumnName="EventID" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Description" ColumnName="Description" />

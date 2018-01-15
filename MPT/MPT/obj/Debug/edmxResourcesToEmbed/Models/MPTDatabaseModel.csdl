@@ -11,6 +11,7 @@
     <Property Name="End" Type="DateTime" Precision="3" />
     <Property Name="ThemeColor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="IsFullDay" Type="Boolean" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="MPTDatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Events" EntityType="Self.Events" />
