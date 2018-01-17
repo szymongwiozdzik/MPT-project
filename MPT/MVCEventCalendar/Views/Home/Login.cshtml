@@ -1,0 +1,70 @@
+﻿@model User
+@*@{
+    ViewBag.Title = "Login";
+}*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ski Tutor Login</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <style>
+        #logo {
+            text-align: center;
+        }
+
+        #logowanie {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div style="padding-top:150px;">
+                <div id="logo">
+                    <img src="~/Pictures/Ski-Logo_400x400.png" style="height: 200px;" />
+                    <br /><br />
+                    <h4>Log in to Ski Tutor Tool</h4>
+                </div>
+                <br />
+                <div id="logowanie">
+                    @using (Html.BeginForm("Login", "Home"))
+            {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary()
+                        <h4>ID:</h4>
+                        @Html.TextBoxFor(model => model.ID)
+                        <h4>Password:</h4>
+                        @Html.PasswordFor(model => model.HasPassword)
+                        <br />
+                        // @Html.ActionLink("Przypomnij hasło", "ForgotPassword")
+
+                        <br />
+                        @*@Html.ActionLink("Forgot your password?", "ForgotPassword")*@
+                        <p align="center"><input type="submit" value="Zaloguj" /></p>
+                    }
+                    <p>@Html.ActionLink("Register", "Register")</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-4"></div>
+        <p>
+        </p>
+    </div>
+</body>
+</html>
+
